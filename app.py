@@ -27,7 +27,7 @@ for key, selected_values in selected_filters.items():
         filtered_cola = filtered_cola[filtered_cola[key].isin(selected_values)]
 
 
-st.dataframe(filtered_cola)
+# st.dataframe(filtered_cola)
 
 #st.dataframe(cola)
 
