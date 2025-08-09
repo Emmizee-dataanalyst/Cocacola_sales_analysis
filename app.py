@@ -58,14 +58,14 @@ st.write("### Analysis Findings")
 
 st.write("#### 1. Beverage Brand with the most Sales")
 
-temp_1 = cola.groupby('Beverage Brand')['Total Sales'].sum().sort_values(ascending=False)
+temp_1 = filtered_cola.groupby('Beverage Brand')['Total Sales'].sum().sort_values(ascending=False)
 temp_1.columns = ["Beverage Brand", "Total Sales"]
 
 st.dataframe(temp_1)
 
 import altair as alt 
 
-sales_chart = alt.Chart(cola).mark_bar().encode(
+sales_chart = alt.Chart(filtered_cola).mark_bar().encode(
     x=alt.X('Beverage Brand:N', sort='-y'),
     y='sum(Total Sales):Q',
     color='Beverage Brand:N',
@@ -75,7 +75,7 @@ st.altair_chart(sales_chart, use_container_width=True)
 
 st.write("#### 2. Beverage Brands with the most profits")
 
-temp_2 = cola.groupby('Beverage Brand')['Operating Profit'].sum().reset_index()
+temp_2 = filtered_cola.groupby('Beverage Brand')['Operating Profit'].sum().reset_index()
 temp_2 = temp_2.sort_values(by='Operating Profit', ascending=False)
 
 st.dataframe(temp_2)
@@ -94,16 +94,16 @@ st.altair_chart(profit_chart, use_container_width=True)
 
 st.write("#### 3. Beverage Brands by most units sold")
 
-temp_3 = cola.groupby('Beverage Brand')['Units Sold'].sum().sort_values(ascending=False) 
+temp_3 = filtered_cola.groupby('Beverage Brand')['Units Sold'].sum().sort_values(ascending=False) 
 
-temp_3_cola = temp_3.reset_index()
-temp_3_cola.columns = ['State', 'Units Sold']
+temp_3_filtered_cola = temp_3.reset_index()
+temp_3_filtered_cola.columns = ['State', 'Units Sold']
 
 # Example stacked chart — adding a fake category just to illustrate
-temp_3_cola['Category'] = ['A' if i % 2 == 0 else 'B' for i in range(len(temp_3_cola))]
+temp_3_filtered_cola['Category'] = ['A' if i % 2 == 0 else 'B' for i in range(len(temp_3_filtered_cola))]
 
 # Create stacked bar chart
-chart = alt.Chart(temp_3_cola).mark_bar().encode(
+chart = alt.Chart(temp_3_filtered_cola).mark_bar().encode(
     x=alt.X('State', sort='-y'),
     y='Units Sold',
     color='Category',  # This is what creates the stacked effect
@@ -118,13 +118,13 @@ chart
 
 st.write("### 4. Monthly Sales Trend")
 
-cola['Month'] = cola['Invoice Date'].dt.to_period('M').astype(str)
-temp_4 = cola.groupby(['Month', 'Beverage Brand'])['Total Sales'].sum().reset_index()
+filtered_cola['Month'] = cola['Invoice Date'].dt.to_period('M').astype(str)
+temp_4 = filtered_cola.groupby(['Month', 'Beverage Brand'])['Total Sales'].sum().reset_index()
 temp_4.columns = ["Month", "Beverage Brand", "Total Sales"]
 
 st.dataframe(temp_4)
 
-monthly_sales_chart = alt.Chart(cola).mark_line(point=True).encode(
+monthly_sales_chart = alt.Chart(filtered_cola).mark_line(point=True).encode(
     x='Month:T',
     y='sum(Total Sales):Q',
     color='Beverage Brand:N',
@@ -135,7 +135,7 @@ st.altair_chart(monthly_sales_chart, use_container_width=True)
 
 st.write("#### 5. Location Trend by Units Sold")
 
-temp_5 = cola.groupby('State')['Units Sold'].sum().reset_index().sort_values(by='Units Sold', ascending=False)
+temp_5 = filtered_cola.groupby('State')['Units Sold'].sum().reset_index().sort_values(by='Units Sold', ascending=False)
 temp_5.columns = ["State", "Units Sold"]
 
 st.dataframe(temp_5)
@@ -156,12 +156,12 @@ chart
 
 st.write("### 6. Beverage Brands with the most operating margin")
 
-temp_6 = cola.groupby('Beverage Brand')['Operating Margin'].mean().sort_values(ascending=False)
+temp_6 = filtered_cola.groupby('Beverage Brand')['Operating Margin'].mean().sort_values(ascending=False)
 temp_6.columns = ["Beverage Brand", "Operating margin"]
 
 st.dataframe(temp_6)
 
-margin_chart = alt.Chart(cola).mark_bar().encode(
+margin_chart = alt.Chart(filtered_cola).mark_bar().encode(
     x=alt.X('Beverage Brand:N', sort='-y'),
     y='mean(Operating Margin):Q',
     color='Beverage Brand:N',
@@ -171,9 +171,9 @@ st.altair_chart(margin_chart, use_container_width=True)
 
 st.write("#### 7. Monthly trend by units sold")
 
-cola['Month'] = cola['Invoice Date'].dt.to_period('M').astype(str)
+filtered_cola['Month'] = filtered_cola['Invoice Date'].dt.to_period('M').astype(str)
 
-temp_7 = cola.groupby('Month')['Units Sold'].sum().reset_index().sort_values(by='Units Sold', ascending=False)
+temp_7 = filtered_cola.groupby('Month')['Units Sold'].sum().reset_index().sort_values(by='Units Sold', ascending=False)
 temp_7.columns = ["Month", "Units Sold"]
 
 st.dataframe(temp_7)
