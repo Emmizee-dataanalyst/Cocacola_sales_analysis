@@ -1,57 +1,47 @@
-Project Overview
-This project involves creating a Coca-Cola Sales Analysis Dashboard using Python to analyze beverage sales data. The goal was to identify key performance drivers such as top-selling brands, profit margins, and regional trends. By leveraging Python libraries for data analysis and visualization, the project delivers actionable insights into sales performance and profitability across different dimensions.
+# **Coca-Cola Sales Analysis Dashboard 🥤**
 
-Problem Statement
-The beverage company needed answers to critical business questions:
+## **📌 Project Overview**
 
-Which beverage brand has the most sales?
+The **Coca-Cola Sales Analysis Dashboard** is a comprehensive data analytics project built with **Python** to explore beverage sales data. The primary goal is to uncover **sales trends**, **profitability patterns**, and **regional performance insights**, helping stakeholders make data-driven decisions.  
 
-Which beverage brand generates the most profits?
+This project combines **data wrangling, exploratory data analysis (EDA), and visualization** techniques to transform raw sales data into actionable business insights.
 
-Which beverage brand records the highest units sold?
+---
 
-What is the monthly trend of beverage brands by total sales?
+## **🎯 Problem Statement**
 
-How do sales vary by state based on units sold?
+The analysis answers critical business questions such as:
 
-Which beverage brand has the highest operating margin?
+- Which beverage brand has the **most sales**?  
+- Which beverage brand records the **highest profits**?  
+- Which beverage brand sold the **most units**?  
+- What is the **monthly sales trend by brand**?  
+- How do sales vary by **state based on units sold**?  
+- Which beverage brand has the **best operating margin**?  
+- What is the **monthly trend of units sold**?  
 
-What is the monthly trend by units sold?
+---
 
-By addressing these questions, the business aimed to optimize product distribution, improve pricing strategies, and maximize profit margins.
+## **✅ Objectives**
 
-Project Objectives
-Analyze total sales, profit, and units sold by beverage brand.
+✔ Analyze **total sales, profit, and units sold** by beverage brand.  
+✔ Identify **top and bottom-performing brands**.  
+✔ Track **monthly and regional sales trends**.  
+✔ Calculate **operating margin per brand**.  
+✔ Deliver insights via **interactive and static visualizations**.  
 
-Identify the top-performing and least-performing brands.
+---
 
-Track monthly and state-level trends in sales and units sold.
+## **🛠 Tools & Technologies**
 
-Measure operating margins for each beverage brand.
+- **Python** – Core language for analysis  
+- **Pandas & NumPy** – Data cleaning & manipulation  
+- **Streamlit** – Static visualizations  
+- **Plotly** – Interactive dashboards and charts  
+- **Jupyter Notebook** – Development and analysis environment  
 
-Present insights using clear and interactive visualizations.
-
-
-Tools and Technologies
-Python – for data processing and visualization.
-
-Pandas & NumPy – for data manipulation and analysis.
-
-Streamlit – for creating detailed visualizations.
-
-Plotly – for interactive charts and trend analysis.
-
-Jupyter Notebook – for combining code, output, and analysis in one environment.
+## Live Demo
+[View the Streamlit App](https://cocacolasalesanalysis-jqzo2nuqjvneqwfyysbvci.streamlit.app/)
 
 
-Key Metrics Tracked:
 
-Total Sales: $8,683,284 
-
-Total Profits: $3,172,494
-
-Total Units Sold: 17,148,250 
-
-Average Operating Margin: 36.31%
-
-Beverage Brands: 6
